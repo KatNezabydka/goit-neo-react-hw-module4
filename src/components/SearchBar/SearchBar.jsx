@@ -2,12 +2,11 @@ import css from '../SearchBar/SearchBar.module.css';
 import { Field, Form, Formik } from 'formik';
 import clsx from 'clsx';
 import btnCss from '../Btn.module.css';
+import toast from 'react-hot-toast';
 
 const SearchBar = ({ search, loading }) => {
   const handleSubmit = (values, actions) => {
-    if (values.query.trim() !== '') {
-      search(values.query);
-    }
+    (values.query.trim() === '') ? toast.error('Please enter a not empty search query') : search(values.query);
     actions.resetForm();
   };
   return (
