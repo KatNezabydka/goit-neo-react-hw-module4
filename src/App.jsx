@@ -68,13 +68,11 @@ const App = () => {
       <ImageGallery images={images} onImageClick={handleImageClick} />
       {loading && <Loader />}
       {canLoadMore && !loading && <LoadMoreBtn onClick={loadMore} />}
-      {selectedImage && (
-        <ImageModal
-          isOpen={!!selectedImage}
-          image={selectedImage}
-          onClose={() => setSelectedImage(null)}
-        />
-      )}
+      <ImageModal
+        isOpen={!!selectedImage}
+        image={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     </div>
   );
 };
